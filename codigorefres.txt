@@ -1,0 +1,59 @@
+<fieldset class="vip-stock-quantity   quantity-selection">
+	    <div class="stock-string">
+	        
+                <legend>
+                    Cantidad:
+                </legend>
+	        
+
+	        <small>
+	            
+	                
+	                    
+	                
+	            
+	        </small>
+	    </div>
+	    
+			
+
+<div class="stock-quantity quantity-selection__controls" data-component="quantitySelector">
+    
+        <button class="stock-quantity-increments stock-quantity-increments-disabled quantity-selection__btn u-btn-reset" type="button" name="pop" id="stockQtyDecrease" disabled>
+            <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon">
+	<g fill="#000" fill-rule="evenodd">
+		<path d="M4.646 7.354l4 4 .354.353.707-.707-.353-.354-4-4L5 6.293 4.293 7z"/>
+		<path d="M9.354 11.354l4-4L13.707 7 13 6.293l-.354.353-4 4-.353.354.707.707z"/>
+	</g>
+</svg>
+
+        </button>
+    
+    <input class=" stock-quantity-input  quantity-selection__input" id="productStockQuantity" data-validate="number" name="quantity" type="tel" min="1" max="13"
+           maxlength="3" title="Cantidad de unidades" value="1"  autocomplete="off" tabindex="2">
+    
+        <button class="stock-quantity-increments  quantity-selection__btn u-btn-reset" type="button" name="push" id="stockQtyIncrease"  />
+            <svg width="22" height="22" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" class="ui-icon">
+	<g fill="#000" fill-rule="evenodd">
+		<path d="M8.646 7.354l4 4 .354.353.707-.707-.353-.354-4-4L9 6.293 8.293 7z"/>
+		<path d="M5.354 11.354l4-4L9.707 7 9 6.293l-.354.353-4 4-.353.354.707.707z"/>
+	</g>
+</svg>
+
+        </button>
+    
+</div>
+
+
+
+
+			
+
+	        
+	            <p id="stockAvailable" class="stock-available ch-hide quantity-selection__warn">Superaste el límite de stock disponible.</p>
+	        
+	    
+
+	</fieldset>
+
+
