@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Artesania.Models.PedidoDetalle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pedido.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producto.NombreProducto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pedido.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producto.NombreProducto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PedidoDetalle1 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PedidoDetalle1 }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PedidoDetalle1 })
+        </td>
+    </tr>
+}
+
+</table>

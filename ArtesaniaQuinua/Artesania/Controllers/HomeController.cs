@@ -8,6 +8,7 @@ namespace Artesania.Controllers
 {
     public class HomeController : Controller
     {
+        private Models.DatabaseEntities bd = new Models.DatabaseEntities();
         // GET: Home
         public ActionResult Index()
         {
@@ -32,10 +33,7 @@ namespace Artesania.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
 
         public ActionResult Email()
         {
@@ -69,16 +67,13 @@ namespace Artesania.Controllers
 
         public static string ObtenerNombreUsuario()
         {
-            using (var b = new Models.TiendaEntities())
+            using (var b = new Models.DatabaseEntities())
             {
                 return b.Cliente.Find(Helper.SessionHelper.GetUser()).Nombres;
             }
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
         public ActionResult Faq()
         {
             return View();
@@ -102,9 +97,6 @@ namespace Artesania.Controllers
         }
 
 
-<<<<<<< HEAD
-=======
-
     }
->>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
+
 }
