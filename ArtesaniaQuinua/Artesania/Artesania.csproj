@@ -142,6 +142,7 @@
     <Content Include="resources\css\popuo-box.css" />
     <Content Include="resources\css\style.css" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="resources\style.css" />
     <Content Include="resources\images\1.jpg" />
     <Content Include="resources\images\1.png" />
     <Content Include="resources\images\10.jpg" />
@@ -380,6 +381,10 @@
     <Content Include="Areas\Admin\Views\SubCategoria\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategoria\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SubCategoria\Index.cshtml" />
+    <Content Include="resources\fonts\icomoon.eot" />
+    <Content Include="resources\fonts\icomoon.svg" />
+    <Content Include="resources\fonts\icomoon.ttf" />
+    <Content Include="resources\fonts\icomoon.woff" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -400,8 +405,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Home\Email.cshtml" />
-<<<<<<< HEAD
-=======
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -417,7 +420,6 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <None Include="Views\Shared\_layout.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
->>>>>>> 135128699f065d90fee877d739f7e91dc66c1d81
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
