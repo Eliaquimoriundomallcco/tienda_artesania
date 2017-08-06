@@ -390,7 +390,7 @@
     <Content Include="resources\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Home\chekout.cshtml" />
+    <Content Include="Views\Home\Chekout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
