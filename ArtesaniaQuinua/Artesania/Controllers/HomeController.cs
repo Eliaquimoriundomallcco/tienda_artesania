@@ -39,6 +39,29 @@ namespace Artesania.Controllers
             return View();
         }
 
+        public ActionResult Faq()
+        {
+            return View();
+        }
+        public ActionResult Jeans()
+        {
+            return View();
+        }
+        public ActionResult Salwars()
+        {
+            return View();
+        }
+        public ActionResult Sandals()
+        {
+            return View();
+        }
+
+        public ActionResult Saress()
+        {
+            return View();
+        }
+
+
 
     }
 }
