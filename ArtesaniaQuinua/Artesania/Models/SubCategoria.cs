@@ -17,7 +17,7 @@ namespace Artesania.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SubCategoria()
         {
-            this.SCP = new HashSet<SCP>();
+            this.Producto = new HashSet<Producto>();
         }
     
         public int SubCategoriaId { get; set; }
@@ -28,6 +28,6 @@ namespace Artesania.Models
     
         public virtual Categoria Categoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SCP> SCP { get; set; }
+        public virtual ICollection<Producto> Producto { get; set; }
     }
 }

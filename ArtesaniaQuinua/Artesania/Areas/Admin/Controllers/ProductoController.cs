@@ -12,12 +12,13 @@ namespace Artesania.Areas.Admin.Controllers
 {
     public class ProductoController : Controller
     {
-        private DatabaseEntities db = new DatabaseEntities();
+        private DatabaseEntities1 db = new DatabaseEntities1();
 
         // GET: Admin/Producto
         public ActionResult Index()
         {
-            return View(db.Producto.ToList());
+            var producto = db.Producto.Include(p => p.SubCategoria);
+            return View(producto.ToList());
         }
 
         // GET: Admin/Producto/Details/5
@@ -38,6 +39,7 @@ namespace Artesania.Areas.Admin.Controllers
         // GET: Admin/Producto/Create
         public ActionResult Create()
         {
+            ViewBag.SubCategoriaId = new SelectList(db.SubCategoria, "SubCategoriaId", "NombreSubCategoria");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace Artesania.Areas.Admin.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductoId,NombreProducto,Descripcion,Puntos,Existencias,Activo")] Producto producto)
+        public ActionResult Create([Bind(Include = "ProductoId,NombreProducto,SubCategoriaId,Descripcion,Puntos,Existencias,Activo")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace Artesania.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.SubCategoriaId = new SelectList(db.SubCategoria, "SubCategoriaId", "NombreSubCategoria", producto.SubCategoriaId);
             return View(producto);
         }
 
@@ -70,6 +73,7 @@ namespace Artesania.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SubCategoriaId = new SelectList(db.SubCategoria, "SubCategoriaId", "NombreSubCategoria", producto.SubCategoriaId);
             return View(producto);
         }
 
@@ -78,7 +82,7 @@ namespace Artesania.Areas.Admin.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductoId,NombreProducto,Descripcion,Puntos,Existencias,Activo")] Producto producto)
+        public ActionResult Edit([Bind(Include = "ProductoId,NombreProducto,SubCategoriaId,Descripcion,Puntos,Existencias,Activo")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace Artesania.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.SubCategoriaId = new SelectList(db.SubCategoria, "SubCategoriaId", "NombreSubCategoria", producto.SubCategoriaId);
             return View(producto);
         }
 

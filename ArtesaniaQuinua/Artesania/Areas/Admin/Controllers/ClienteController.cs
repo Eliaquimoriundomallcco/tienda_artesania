@@ -12,7 +12,7 @@ namespace Artesania.Areas.Admin.Controllers
 {
     public class ClienteController : Controller
     {
-        private DatabaseEntities db = new DatabaseEntities();
+        private DatabaseEntities1 db = new DatabaseEntities1();
 
         // GET: Admin/Cliente
         public ActionResult Index()

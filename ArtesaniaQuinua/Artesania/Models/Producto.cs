@@ -19,11 +19,11 @@ namespace Artesania.Models
         {
             this.PedidoDetalle = new HashSet<PedidoDetalle>();
             this.ProductoImagen = new HashSet<ProductoImagen>();
-            this.SCP = new HashSet<SCP>();
         }
     
         public int ProductoId { get; set; }
         public string NombreProducto { get; set; }
+        public int SubCategoriaId { get; set; }
         public string Descripcion { get; set; }
         public int Puntos { get; set; }
         public int Existencias { get; set; }
@@ -31,9 +31,8 @@ namespace Artesania.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PedidoDetalle> PedidoDetalle { get; set; }
+        public virtual SubCategoria SubCategoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductoImagen> ProductoImagen { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SCP> SCP { get; set; }
     }
 }

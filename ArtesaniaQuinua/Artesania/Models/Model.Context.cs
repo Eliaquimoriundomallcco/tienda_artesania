@@ -13,10 +13,10 @@ namespace Artesania.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities : DbContext
+    public partial class DatabaseEntities1 : DbContext
     {
-        public DatabaseEntities()
-            : base("name=DatabaseEntities")
+        public DatabaseEntities1()
+            : base("name=DatabaseEntities1")
         {
         }
     
@@ -31,7 +31,6 @@ namespace Artesania.Models
         public virtual DbSet<PedidoDetalle> PedidoDetalle { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<ProductoImagen> ProductoImagen { get; set; }
-        public virtual DbSet<SCP> SCP { get; set; }
         public virtual DbSet<SubCategoria> SubCategoria { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<UsuarioImagen> UsuarioImagen { get; set; }

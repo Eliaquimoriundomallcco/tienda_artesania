@@ -9,7 +9,7 @@ namespace Artesania.Controllers
 
     public class HomeController : Controller
     {
-        private Models.DatabaseEntities bd = new Models.DatabaseEntities();
+        private Models.DatabaseEntities1 bd = new Models.DatabaseEntities1();
         // GET: Home
         public ActionResult Index()
         {
@@ -81,7 +81,7 @@ namespace Artesania.Controllers
 
         public static string ObtenerNombreUsuario()
         {
-            using (var b = new Models.DatabaseEntities())
+            using (var b = new Models.DatabaseEntities1())
             {
                 return b.Cliente.Find(Helper.SessionHelper.GetUser()).Nombres;
             }

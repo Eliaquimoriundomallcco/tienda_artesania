@@ -286,4 +286,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+<<<<<<< HEAD
 *.csproj
+=======
+ArtesaniaQuinua/Artesania/Artesania.csproj
+>>>>>>> cabafcbe20a5ba4ce87b5cdde47e2ae26e2f46c5
