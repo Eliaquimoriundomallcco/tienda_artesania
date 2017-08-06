@@ -14,7 +14,14 @@ namespace Artesania.Controllers
             return View();
         }
 
+        public ActionResult Chekout()
+        {
+            return View();
+        }
 
-
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }
