@@ -32,12 +32,17 @@ namespace Artesania.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b49af7f45b6ce546ae05800f8d2d708f2953b92
 
         public ActionResult Email()
         {
             return View();
         }
 
+<<<<<<< HEAD
         public ActionResult Login(string usuario, string clave)
         {
             var u = bd.Cliente.FirstOrDefault(x => x.Usuario == usuario && x.Clave == clave);
@@ -71,5 +76,31 @@ namespace Artesania.Controllers
         }
 
 
+=======
+        public ActionResult Faq()
+        {
+            return View();
+        }
+        public ActionResult Jeans()
+        {
+            return View();
+        }
+        public ActionResult Salwars()
+        {
+            return View();
+        }
+        public ActionResult Sandals()
+        {
+            return View();
+        }
+
+        public ActionResult Saress()
+        {
+            return View();
+        }
+
+
+
+>>>>>>> 0b49af7f45b6ce546ae05800f8d2d708f2953b92
     }
 }
