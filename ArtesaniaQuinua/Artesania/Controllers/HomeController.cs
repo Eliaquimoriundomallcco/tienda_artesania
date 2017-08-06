@@ -32,18 +32,36 @@ namespace Artesania.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-=======
+
 
         public ActionResult Email()
         {
             return View();
         }
-<<<<<<< HEAD
-      
 
-=======
->>>>>>> 30528c28e8532a2d636e180e2440e8b5ee206317
->>>>>>> 17996b89b2e28f3261e52c08609ecf61f74c72a5
+        public ActionResult Faq()
+        {
+            return View();
+        }
+        public ActionResult Jeans()
+        {
+            return View();
+        }
+        public ActionResult Salwars()
+        {
+            return View();
+        }
+        public ActionResult Sandals()
+        {
+            return View();
+        }
+
+        public ActionResult Saress()
+        {
+            return View();
+        }
+
+
+
     }
 }
