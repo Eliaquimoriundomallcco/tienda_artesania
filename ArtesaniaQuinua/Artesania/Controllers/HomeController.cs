@@ -14,21 +14,23 @@ namespace Artesania.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         public ActionResult Chekout()
-=======
-        public ActionResult Producto()
->>>>>>> 59135e6d1f64f78ce6f560a1dbf24baf324805c7
         {
             return View();
         }
 
-<<<<<<< HEAD
+        public ActionResult Producto()
+
+        {
+            return View();
+        }
+
+
         public ActionResult About()
         {
             return View();
         }
-=======
->>>>>>> 59135e6d1f64f78ce6f560a1dbf24baf324805c7
+
     }
 }
