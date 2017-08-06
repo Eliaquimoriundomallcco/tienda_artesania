@@ -32,10 +32,13 @@ namespace Artesania.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+=======
 
         public ActionResult Email()
         {
             return View();
         }
+>>>>>>> 30528c28e8532a2d636e180e2440e8b5ee206317
     }
 }
