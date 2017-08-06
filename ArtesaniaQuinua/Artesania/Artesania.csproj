@@ -304,16 +304,13 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Producto.cshtml" />
-
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-
     <Content Include="Views\Home\chekout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-
-
+    <Content Include="Views\Home\Email.cshtml" />
     <None Include="Views\Shared\_layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
