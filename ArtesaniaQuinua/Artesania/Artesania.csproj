@@ -321,12 +321,19 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Home\Producto.cshtml" />
+=======
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+<<<<<<< HEAD
     <Content Include="Views\Home\chekout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+=======
+>>>>>>> 8388f177a0f2b44615da8228c779e58622b4ea49
+>>>>>>> 59135e6d1f64f78ce6f560a1dbf24baf324805c7
     <None Include="Views\Shared\_layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
