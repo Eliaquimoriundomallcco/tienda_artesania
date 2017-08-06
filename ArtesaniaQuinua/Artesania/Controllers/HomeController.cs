@@ -32,18 +32,44 @@ namespace Artesania.Controllers
             return View();
         }
 
-<<<<<<< HEAD
-=======
 
         public ActionResult Email()
         {
             return View();
         }
-<<<<<<< HEAD
-      
 
-=======
->>>>>>> 30528c28e8532a2d636e180e2440e8b5ee206317
->>>>>>> 17996b89b2e28f3261e52c08609ecf61f74c72a5
+        public ActionResult Login(string usuario, string clave)
+        {
+            var u = bd.Cliente.FirstOrDefault(x => x.Usuario == usuario && x.Clave == clave);
+            if (u != null)
+            {
+                Helper.SessionHelper.AddUserToSession(u.ClienteId.ToString());
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Logout()
+        {
+            Helper.SessionHelper.DestroyUserSession();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult RegistrarCliente(Models.Cliente c)
+        {
+            bd.Cliente.Add(c);
+            bd.SaveChanges();
+            Helper.SessionHelper.AddUserToSession(c.ClienteId.ToString());
+            return RedirectToAction("Index", "Home");
+        }
+
+        public static string ObtenerNombreUsuario()
+        {
+            using (var b = new Models.TiendaEntities())
+            {
+                return b.Cliente.Find(Helper.SessionHelper.GetUser()).Nombres;
+            }
+        }
+
+
     }
 }
