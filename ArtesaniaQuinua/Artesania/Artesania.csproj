@@ -117,13 +117,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\fasthover.css" />
-    <Content Include="css\flexslider.css" />
-    <Content Include="css\jquery.countdown.css" />
-    <Content Include="css\popuo-box.css" />
-    <Content Include="css\style.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\1.jpg" />
     <Content Include="images\1.png" />
@@ -307,28 +300,10 @@
     <Content Include="images\w7.jpg" />
     <Content Include="images\w8.jpg" />
     <Content Include="images\w9.jpg" />
-    <Content Include="js\bootstrap-3.1.1.min.js" />
-    <Content Include="js\easyResponsiveTabs.js" />
-    <Content Include="js\imagezoom.js" />
-    <Content Include="js\jquery.countdown.js" />
-    <Content Include="js\jquery.flexisel.js" />
-    <Content Include="js\jquery.flexslider.js" />
-    <Content Include="js\jquery.magnific-popup.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="js\jquery.wmuSlider.js" />
-    <Content Include="js\script.js" />
-    <Content Include="js\simpleCart.min.js" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Views\Home\Index.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Home\Producto.cshtml" />
-=======
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
->>>>>>> 8388f177a0f2b44615da8228c779e58622b4ea49
     <None Include="Views\Shared\_layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
