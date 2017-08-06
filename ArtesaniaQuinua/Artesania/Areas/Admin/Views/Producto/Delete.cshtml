@@ -51,6 +51,14 @@
             @Html.DisplayFor(model => model.Activo)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoria.NombreSubCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoria.NombreSubCategoria)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

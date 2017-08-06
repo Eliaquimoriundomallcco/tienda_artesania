@@ -4,25 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="89044ac166a14869b633ef85e19aa35d" Name="Diagram1" ZoomLevel="55">
-        <EntityTypeShape EntityType="DatabaseModel.Categoria" Width="1.5" PointX="1.125" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Cliente" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Pedido" Width="1.5" PointX="10.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.PedidoDetalle" Width="1.5" PointX="8" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Producto" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.ProductoImagen" Width="1.5" PointX="3.375" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.SCP" Width="1.5" PointX="3.625" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.SubCategoria" Width="1.5" PointX="1.25" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Usuario" Width="1.5" PointX="5.625" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.UsuarioImagen" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="DatabaseModel.FK__SubCatego__Categ__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__Pedido__ClienteI__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__PedidoDet__Pedid__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__PedidoDet__Produ__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__ProductoI__Produ__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__SCP__ProductoId__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__SCP__SubCategori__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__UsuarioIm__Usuar__4222D4EF" ManuallyRouted="false" />
+      <Diagram DiagramId="1efbf4ee6ea849ab8a0ee60230732913" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="Database1Model.Categoria" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Cliente" Width="1.5" PointX="12.375" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Pedido" Width="1.5" PointX="9.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.PedidoDetalle" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Producto" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.ProductoImagen" Width="1.5" PointX="5.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.SubCategoria" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Usuario" Width="1.5" PointX="9.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.UsuarioImagen" Width="1.5" PointX="12.125" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK__SubCatego__Categ__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Pedido__ClienteI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__PedidoDet__Pedid__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__PedidoDet__Produ__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__Producto__SubCat__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__ProductoI__Produ__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK__UsuarioIm__Usuar__3F466844" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

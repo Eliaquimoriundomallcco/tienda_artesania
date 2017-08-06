@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="CategoriaId" />
@@ -52,6 +52,7 @@
           </Key>
           <Property Name="ProductoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreProducto" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SubCategoriaId" Type="int" Nullable="false" />
           <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
           <Property Name="Puntos" Type="int" Nullable="false" />
           <Property Name="Existencias" Type="int" Nullable="false" />
@@ -66,14 +67,6 @@
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Titulo" Type="varchar" MaxLength="255" />
           <Property Name="Descripcion" Type="varchar(max)" />
-        </EntityType>
-        <EntityType Name="SCP">
-          <Key>
-            <PropertyRef Name="SPCID" />
-          </Key>
-          <Property Name="SPCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SubCategoriaId" Type="int" Nullable="false" />
-          <Property Name="ProductoId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SubCategoria">
           <Key>
@@ -140,7 +133,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoI__Produ__3C69FB99">
+        <Association Name="FK__Producto__SubCat__2A4B4B5E">
+          <End Role="SubCategoria" Type="Self.SubCategoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategoria">
+              <PropertyRef Name="SubCategoriaId" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="SubCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoI__Produ__300424B4">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoImagen" Type="Self.ProductoImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,30 +154,6 @@
             </Principal>
             <Dependent Role="ProductoImagen">
               <PropertyRef Name="ProductoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SCP__ProductoId__300424B4">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="SCP" Type="Self.SCP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="ProductoId" />
-            </Principal>
-            <Dependent Role="SCP">
-              <PropertyRef Name="ProductoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SCP__SubCategori__2F10007B">
-          <End Role="SubCategoria" Type="Self.SubCategoria" Multiplicity="1" />
-          <End Role="SCP" Type="Self.SCP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubCategoria">
-              <PropertyRef Name="SubCategoriaId" />
-            </Principal>
-            <Dependent Role="SCP">
-              <PropertyRef Name="SubCategoriaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -188,7 +169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsuarioIm__Usuar__4222D4EF">
+        <Association Name="FK__UsuarioIm__Usuar__3F466844">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="UsuarioImagen" Type="Self.UsuarioImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,14 +181,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseModelStoreContainer">
+        <EntityContainer Name="Database1ModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PedidoDetalle" EntityType="Self.PedidoDetalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductoImagen" EntityType="Self.ProductoImagen" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SCP" EntityType="Self.SCP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCategoria" EntityType="Self.SubCategoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsuarioImagen" EntityType="Self.UsuarioImagen" Schema="dbo" store:Type="Tables" />
@@ -223,23 +203,19 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoI__Produ__3C69FB99" Association="Self.FK__ProductoI__Produ__3C69FB99">
+          <AssociationSet Name="FK__Producto__SubCat__2A4B4B5E" Association="Self.FK__Producto__SubCat__2A4B4B5E">
+            <End Role="SubCategoria" EntitySet="SubCategoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoI__Produ__300424B4" Association="Self.FK__ProductoI__Produ__300424B4">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoImagen" EntitySet="ProductoImagen" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SCP__ProductoId__300424B4" Association="Self.FK__SCP__ProductoId__300424B4">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="SCP" EntitySet="SCP" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SCP__SubCategori__2F10007B" Association="Self.FK__SCP__SubCategori__2F10007B">
-            <End Role="SubCategoria" EntitySet="SubCategoria" />
-            <End Role="SCP" EntitySet="SCP" />
           </AssociationSet>
           <AssociationSet Name="FK__SubCatego__Categ__267ABA7A" Association="Self.FK__SubCatego__Categ__267ABA7A">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="SubCategoria" EntitySet="SubCategoria" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsuarioIm__Usuar__4222D4EF" Association="Self.FK__UsuarioIm__Usuar__4222D4EF">
+          <AssociationSet Name="FK__UsuarioIm__Usuar__3F466844" Association="Self.FK__UsuarioIm__Usuar__3F466844">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="UsuarioImagen" EntitySet="UsuarioImagen" />
           </AssociationSet>
@@ -248,7 +224,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="CategoriaId" />
@@ -302,13 +278,14 @@
           </Key>
           <Property Name="ProductoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NombreProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubCategoriaId" Type="Int32" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Puntos" Type="Int32" Nullable="false" />
           <Property Name="Existencias" Type="Int32" Nullable="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PedidoDetalle" Relationship="Self.FK__PedidoDet__Produ__398D8EEE" FromRole="Producto" ToRole="PedidoDetalle" />
-          <NavigationProperty Name="ProductoImagen" Relationship="Self.FK__ProductoI__Produ__3C69FB99" FromRole="Producto" ToRole="ProductoImagen" />
-          <NavigationProperty Name="SCP" Relationship="Self.FK__SCP__ProductoId__300424B4" FromRole="Producto" ToRole="SCP" />
+          <NavigationProperty Name="SubCategoria" Relationship="Self.FK__Producto__SubCat__2A4B4B5E" FromRole="Producto" ToRole="SubCategoria" />
+          <NavigationProperty Name="ProductoImagen" Relationship="Self.FK__ProductoI__Produ__300424B4" FromRole="Producto" ToRole="ProductoImagen" />
         </EntityType>
         <EntityType Name="ProductoImagen">
           <Key>
@@ -319,17 +296,7 @@
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__ProductoI__Produ__3C69FB99" FromRole="ProductoImagen" ToRole="Producto" />
-        </EntityType>
-        <EntityType Name="SCP">
-          <Key>
-            <PropertyRef Name="SPCID" />
-          </Key>
-          <Property Name="SPCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubCategoriaId" Type="Int32" Nullable="false" />
-          <Property Name="ProductoId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Producto" Relationship="Self.FK__SCP__ProductoId__300424B4" FromRole="SCP" ToRole="Producto" />
-          <NavigationProperty Name="SubCategoria" Relationship="Self.FK__SCP__SubCategori__2F10007B" FromRole="SCP" ToRole="SubCategoria" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__ProductoI__Produ__300424B4" FromRole="ProductoImagen" ToRole="Producto" />
         </EntityType>
         <EntityType Name="SubCategoria">
           <Key>
@@ -341,7 +308,7 @@
           <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Categoria" Relationship="Self.FK__SubCatego__Categ__267ABA7A" FromRole="SubCategoria" ToRole="Categoria" />
-          <NavigationProperty Name="SCP" Relationship="Self.FK__SCP__SubCategori__2F10007B" FromRole="SubCategoria" ToRole="SCP" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__SubCat__2A4B4B5E" FromRole="SubCategoria" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -352,7 +319,7 @@
           <Property Name="Clave" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="UsuarioImagen" Relationship="Self.FK__UsuarioIm__Usuar__4222D4EF" FromRole="Usuario" ToRole="UsuarioImagen" />
+          <NavigationProperty Name="UsuarioImagen" Relationship="Self.FK__UsuarioIm__Usuar__3F466844" FromRole="Usuario" ToRole="UsuarioImagen" />
         </EntityType>
         <EntityType Name="UsuarioImagen">
           <Key>
@@ -362,7 +329,7 @@
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK__UsuarioIm__Usuar__4222D4EF" FromRole="UsuarioImagen" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__UsuarioIm__Usuar__3F466844" FromRole="UsuarioImagen" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK__SubCatego__Categ__267ABA7A">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
@@ -412,7 +379,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductoI__Produ__3C69FB99">
+        <Association Name="FK__Producto__SubCat__2A4B4B5E">
+          <End Role="SubCategoria" Type="Self.SubCategoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCategoria">
+              <PropertyRef Name="SubCategoriaId" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="SubCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductoI__Produ__300424B4">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="ProductoImagen" Type="Self.ProductoImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -424,31 +403,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SCP__ProductoId__300424B4">
-          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
-          <End Role="SCP" Type="Self.SCP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producto">
-              <PropertyRef Name="ProductoId" />
-            </Principal>
-            <Dependent Role="SCP">
-              <PropertyRef Name="ProductoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SCP__SubCategori__2F10007B">
-          <End Role="SubCategoria" Type="Self.SubCategoria" Multiplicity="1" />
-          <End Role="SCP" Type="Self.SCP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubCategoria">
-              <PropertyRef Name="SubCategoriaId" />
-            </Principal>
-            <Dependent Role="SCP">
-              <PropertyRef Name="SubCategoriaId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UsuarioIm__Usuar__4222D4EF">
+        <Association Name="FK__UsuarioIm__Usuar__3F466844">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="UsuarioImagen" Type="Self.UsuarioImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -460,14 +415,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
           <EntitySet Name="PedidoDetalle" EntityType="Self.PedidoDetalle" />
           <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="ProductoImagen" EntityType="Self.ProductoImagen" />
-          <EntitySet Name="SCP" EntityType="Self.SCP" />
           <EntitySet Name="SubCategoria" EntityType="Self.SubCategoria" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <EntitySet Name="UsuarioImagen" EntityType="Self.UsuarioImagen" />
@@ -487,19 +441,15 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="PedidoDetalle" EntitySet="PedidoDetalle" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductoI__Produ__3C69FB99" Association="Self.FK__ProductoI__Produ__3C69FB99">
+          <AssociationSet Name="FK__Producto__SubCat__2A4B4B5E" Association="Self.FK__Producto__SubCat__2A4B4B5E">
+            <End Role="SubCategoria" EntitySet="SubCategoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductoI__Produ__300424B4" Association="Self.FK__ProductoI__Produ__300424B4">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoImagen" EntitySet="ProductoImagen" />
           </AssociationSet>
-          <AssociationSet Name="FK__SCP__ProductoId__300424B4" Association="Self.FK__SCP__ProductoId__300424B4">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="SCP" EntitySet="SCP" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SCP__SubCategori__2F10007B" Association="Self.FK__SCP__SubCategori__2F10007B">
-            <End Role="SubCategoria" EntitySet="SubCategoria" />
-            <End Role="SCP" EntitySet="SCP" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UsuarioIm__Usuar__4222D4EF" Association="Self.FK__UsuarioIm__Usuar__4222D4EF">
+          <AssociationSet Name="FK__UsuarioIm__Usuar__3F466844" Association="Self.FK__UsuarioIm__Usuar__3F466844">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="UsuarioImagen" EntitySet="UsuarioImagen" />
           </AssociationSet>
@@ -509,9 +459,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
           <EntitySetMapping Name="Categoria">
-            <EntityTypeMapping TypeName="DatabaseModel.Categoria">
+            <EntityTypeMapping TypeName="Database1Model.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
                 <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
                 <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
@@ -521,7 +471,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="DatabaseModel.Cliente">
+            <EntityTypeMapping TypeName="Database1Model.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -536,7 +486,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pedido">
-            <EntityTypeMapping TypeName="DatabaseModel.Pedido">
+            <EntityTypeMapping TypeName="Database1Model.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
                 <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
@@ -546,7 +496,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PedidoDetalle">
-            <EntityTypeMapping TypeName="DatabaseModel.PedidoDetalle">
+            <EntityTypeMapping TypeName="Database1Model.PedidoDetalle">
               <MappingFragment StoreEntitySet="PedidoDetalle">
                 <ScalarProperty Name="PedidoDetalle1" ColumnName="PedidoDetalle" />
                 <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
@@ -556,10 +506,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="DatabaseModel.Producto">
+            <EntityTypeMapping TypeName="Database1Model.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
                 <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="SubCategoriaId" ColumnName="SubCategoriaId" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Puntos" ColumnName="Puntos" />
                 <ScalarProperty Name="Existencias" ColumnName="Existencias" />
@@ -568,7 +519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductoImagen">
-            <EntityTypeMapping TypeName="DatabaseModel.ProductoImagen">
+            <EntityTypeMapping TypeName="Database1Model.ProductoImagen">
               <MappingFragment StoreEntitySet="ProductoImagen">
                 <ScalarProperty Name="ProductoImagenId" ColumnName="ProductoImagenId" />
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
@@ -578,17 +529,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SCP">
-            <EntityTypeMapping TypeName="DatabaseModel.SCP">
-              <MappingFragment StoreEntitySet="SCP">
-                <ScalarProperty Name="SPCID" ColumnName="SPCID" />
-                <ScalarProperty Name="SubCategoriaId" ColumnName="SubCategoriaId" />
-                <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SubCategoria">
-            <EntityTypeMapping TypeName="DatabaseModel.SubCategoria">
+            <EntityTypeMapping TypeName="Database1Model.SubCategoria">
               <MappingFragment StoreEntitySet="SubCategoria">
                 <ScalarProperty Name="SubCategoriaId" ColumnName="SubCategoriaId" />
                 <ScalarProperty Name="NombreSubCategoria" ColumnName="NombreSubCategoria" />
@@ -599,7 +541,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="DatabaseModel.Usuario">
+            <EntityTypeMapping TypeName="Database1Model.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
                 <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
@@ -610,7 +552,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UsuarioImagen">
-            <EntityTypeMapping TypeName="DatabaseModel.UsuarioImagen">
+            <EntityTypeMapping TypeName="Database1Model.UsuarioImagen">
               <MappingFragment StoreEntitySet="UsuarioImagen">
                 <ScalarProperty Name="UsuarioImagenID" ColumnName="UsuarioImagenID" />
                 <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
