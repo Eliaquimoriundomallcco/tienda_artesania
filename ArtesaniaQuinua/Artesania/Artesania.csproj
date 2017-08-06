@@ -400,8 +400,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Views\Home\Email.cshtml" />
-<<<<<<< HEAD
-=======
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -415,9 +413,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <None Include="Views\Shared\_layout.cshtml" />
-    <None Include="Views\Shared\_Layout.cshtml" />
->>>>>>> 135128699f065d90fee877d739f7e91dc66c1d81
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
