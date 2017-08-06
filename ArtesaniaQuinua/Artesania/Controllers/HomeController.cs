@@ -22,10 +22,24 @@ namespace Artesania.Controllers
             return View();
         }
 
-        public ActionResult Producto()
-
+        public ActionResult Producto(string id = "",string idcategoria="",string idsubcate="")
         {
-            return View();
+
+'
+
+
+
+
+
+
+            ;
+            var producto = bd.Producto
+                .Where(x => x.NombreProducto.Contains(id) )
+                .Take(20)
+                .ToList();
+            ViewBag.clave = id;
+            return View(producto);
+            
         }
 
 
