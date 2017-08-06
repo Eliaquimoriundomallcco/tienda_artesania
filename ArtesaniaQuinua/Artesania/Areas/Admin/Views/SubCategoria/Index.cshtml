@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Artesania.Models.SubCategoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreSubCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.NombreCategoria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreSubCategoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.NombreCategoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SubCategoriaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SubCategoriaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SubCategoriaId })
+        </td>
+    </tr>
+}
+
+</table>
