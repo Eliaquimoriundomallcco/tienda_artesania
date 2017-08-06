@@ -334,7 +334,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Home\chekout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-<<<<<<< HEAD
+
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
