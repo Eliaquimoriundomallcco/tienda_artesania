@@ -32,6 +32,10 @@ namespace Artesania.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
 
         public ActionResult Email()
         {
@@ -71,6 +75,10 @@ namespace Artesania.Controllers
             }
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
         public ActionResult Faq()
         {
             return View();
@@ -94,4 +102,9 @@ namespace Artesania.Controllers
         }
 
 
+<<<<<<< HEAD
+=======
+
+    }
+>>>>>>> 415bbfebf00d765f2d3e747b3904807f930ba54d
 }
