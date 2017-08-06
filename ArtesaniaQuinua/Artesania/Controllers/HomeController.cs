@@ -14,7 +14,10 @@ namespace Artesania.Controllers
             return View();
         }
 
-
+        public ActionResult Producto()
+        {
+            return View();
+        }
 
     }
 }
