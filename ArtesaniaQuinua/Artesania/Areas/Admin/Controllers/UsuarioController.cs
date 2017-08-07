@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Artesania.Models;
+using System.IO;
 
 namespace Artesania.Areas.Admin.Controllers
 {
@@ -123,5 +124,65 @@ namespace Artesania.Areas.Admin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+
+
+        public JsonResult Adjuntar(int UsuarioID, HttpPostedFileBase documento)
+        {
+            var respuesta = new Models.ResponseModel
+            {
+                respuesta = true,
+                error = ""
+            };
+
+            if (documento != null)
+            {
+                string adjunto = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(documento.FileName);
+                documento.SaveAs(Server.MapPath("~/ImgProductos/" + adjunto));
+
+                db.UsuarioImagen.Add(new UsuarioImagen { UsuarioID = UsuarioID, Imagen = adjunto, Titulo = "Ejemplo" });
+                db.SaveChanges();
+
+            }
+            else
+            {
+                respuesta.respuesta = false;
+                respuesta.error = "Debe adjuntar un documento";
+            }
+
+            return Json(respuesta);
+        }
+
+        public PartialViewResult Adjuntos(int UsuarioID)
+        {
+           
+            return PartialView(db.UsuarioImagen.Where(x => x.UsuarioID == UsuarioID).ToList());
+        }
+
+
+
+
+
+        public JsonResult EliminarImagen(int UsuarioImagenID)
+        {
+            var rpt = new Models.ResponseModel()
+            {
+                respuesta = true,
+                error = ""
+            };
+            var img = db.UsuarioImagen.Find(UsuarioImagenID);
+
+            if (System.IO.File.Exists(Server.MapPath("~/ImgProductos/" + img.Imagen)))
+                System.IO.File.Delete(Server.MapPath("~/ImgProductos/" + img.Imagen));
+
+            db.UsuarioImagen.Remove(img);
+            db.SaveChanges();
+
+            return Json(rpt);
+        }
+
+
     }
 }

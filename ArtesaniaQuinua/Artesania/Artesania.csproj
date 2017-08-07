@@ -399,6 +399,7 @@
     <Content Include="Areas\Admin\Views\Usuario\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Producto\Adjuntos.cshtml" />
+    <Content Include="Areas\Admin\Views\Usuario\Adjuntos.cshtml" />
     <None Include="resources\scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="resources\scripts\jquery-1.10.2.js" />
     <Content Include="resources\scripts\jquery-1.10.2.min.js" />
@@ -415,26 +416,16 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Categoria\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Index.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
-
     <None Include="Views\Shared\_layout.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
-
-=======
     <Content Include="resources\scripts\jquery-1.10.2.min.map" />
     <None Include="Views\Shared\_layout.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
->>>>>>> cabafcbe20a5ba4ce87b5cdde47e2ae26e2f46c5
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>

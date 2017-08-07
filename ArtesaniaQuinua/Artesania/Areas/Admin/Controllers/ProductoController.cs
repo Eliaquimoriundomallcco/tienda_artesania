@@ -163,6 +163,25 @@ namespace Artesania.Areas.Admin.Controllers
             return PartialView(db.ProductoImagen.Where(x => x.ProductoId == ProductoId).ToList());
         }
 
+        public JsonResult EliminarImagen(int ProductoImagenId)
+        {
+            var rpt = new Models.ResponseModel()
+            {
+                respuesta = true,
+                error = ""
+            };
+            var img = db.ProductoImagen.Find(ProductoImagenId);
+
+            if (System.IO.File.Exists(Server.MapPath("~/ImgProductos/" + img.Imagen)))
+                System.IO.File.Delete(Server.MapPath("~/ImgProductos/" + img.Imagen));
+
+            db.ProductoImagen.Remove(img);
+            db.SaveChanges();
+
+            return Json(rpt);
+        }
+
+
 
     }
 }

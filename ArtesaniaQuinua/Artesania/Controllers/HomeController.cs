@@ -22,10 +22,10 @@ namespace Artesania.Controllers
             return View();
         }
 
-        public ActionResult Producto(string id = "",string idcategoria="",string idsubcate="")
+        public ActionResult Producto(string id = "", string idcategoria = "", string idsubcate = "")
         {
 
-'
+        
 
 
 

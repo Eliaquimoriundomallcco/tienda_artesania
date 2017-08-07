@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
+
       <Diagram DiagramId="89044ac166a14869b633ef85e19aa35d" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="DatabaseModel.Categoria" Width="1.5" PointX="1.125" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Cliente" Width="1.5" PointX="10.75" PointY="4.875" IsExpanded="true" />
@@ -24,7 +24,7 @@
         <AssociationConnector Association="DatabaseModel.FK__SCP__ProductoId__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK__SCP__SubCategori__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK__UsuarioIm__Usuar__4222D4EF" ManuallyRouted="false" />
-=======
+
       <Diagram DiagramId="1efbf4ee6ea849ab8a0ee60230732913" Name="Diagram1" ZoomLevel="60">
         <EntityTypeShape EntityType="Database1Model.Categoria" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Database1Model.Cliente" Width="1.5" PointX="12.375" PointY="2.75" IsExpanded="true" />
@@ -42,7 +42,7 @@
         <AssociationConnector Association="Database1Model.FK__Producto__SubCat__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.FK__ProductoI__Produ__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="Database1Model.FK__UsuarioIm__Usuar__3F466844" ManuallyRouted="false" />
->>>>>>> cabafcbe20a5ba4ce87b5cdde47e2ae26e2f46c5
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -20,5 +20,6 @@ namespace Artesania.Models
         public string Titulo { get; set; }
     
         public virtual Usuario Usuario { get; set; }
+        public int UsuarioID { get; internal set; }
     }
 }
