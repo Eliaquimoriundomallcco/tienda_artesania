@@ -25,14 +25,7 @@ namespace Artesania.Controllers
         public ActionResult Producto(string id = "",string idcategoria="",string idsubcate="")
         {
 
-'
-
-
-
-
-
-
-            ;
+            
             var producto = bd.Producto
                 .Where(x => x.NombreProducto.Contains(id) )
                 .Take(20)
