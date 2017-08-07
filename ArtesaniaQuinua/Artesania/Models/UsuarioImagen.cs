@@ -18,8 +18,8 @@ namespace Artesania.Models
         public int UsuarioId { get; set; }
         public string Imagen { get; set; }
         public string Titulo { get; set; }
+        public string Descripcion { get; set; }
     
         public virtual Usuario Usuario { get; set; }
-        public int UsuarioID { get; internal set; }
     }
 }

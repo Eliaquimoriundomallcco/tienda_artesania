@@ -13,7 +13,7 @@ namespace Artesania.Areas.Admin.Controllers
 {
     public class UsuarioController : Controller
     {
-        private DatabaseEntities1 db = new DatabaseEntities1();
+        private DatabaseEntities2 db = new DatabaseEntities2();
 
         // GET: Admin/Usuario
         public ActionResult Index()
@@ -128,7 +128,6 @@ namespace Artesania.Areas.Admin.Controllers
 
 
 
-
         public JsonResult Adjuntar(int UsuarioID, HttpPostedFileBase documento)
         {
             var respuesta = new Models.ResponseModel
@@ -142,7 +141,7 @@ namespace Artesania.Areas.Admin.Controllers
                 string adjunto = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(documento.FileName);
                 documento.SaveAs(Server.MapPath("~/ImgProductos/" + adjunto));
 
-                db.UsuarioImagen.Add(new UsuarioImagen { UsuarioID = UsuarioID, Imagen = adjunto, Titulo = "Ejemplo" });
+                db.UsuarioImagen.Add(new UsuarioImagen { UsuarioId = UsuarioID, Imagen = adjunto, Titulo = "Ejemplo", Descripcion = "Ejemplo" });
                 db.SaveChanges();
 
             }
@@ -155,24 +154,19 @@ namespace Artesania.Areas.Admin.Controllers
             return Json(respuesta);
         }
 
-        public PartialViewResult Adjuntos(int UsuarioID)
+        public PartialViewResult Adjuntos(int UsuarioId)
         {
-           
-            return PartialView(db.UsuarioImagen.Where(x => x.UsuarioID == UsuarioID).ToList());
+            return PartialView(db.UsuarioImagen.Where(x => x.UsuarioId == UsuarioId).ToList());
         }
 
-
-
-
-
-        public JsonResult EliminarImagen(int UsuarioImagenID)
+        public JsonResult EliminarImagen(int UsuarioImagenId)
         {
             var rpt = new Models.ResponseModel()
             {
                 respuesta = true,
                 error = ""
             };
-            var img = db.UsuarioImagen.Find(UsuarioImagenID);
+            var img = db.UsuarioImagen.Find(UsuarioImagenId);
 
             if (System.IO.File.Exists(Server.MapPath("~/ImgProductos/" + img.Imagen)))
                 System.IO.File.Delete(Server.MapPath("~/ImgProductos/" + img.Imagen));
@@ -182,6 +176,7 @@ namespace Artesania.Areas.Admin.Controllers
 
             return Json(rpt);
         }
+
 
 
     }

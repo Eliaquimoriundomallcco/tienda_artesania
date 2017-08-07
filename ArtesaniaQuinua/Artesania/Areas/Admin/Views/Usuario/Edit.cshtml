@@ -70,30 +70,29 @@
             </div>
         </div>
 
+
   
-
-        <div class="col-md-6">
-
-            @if (Model.UsuarioID > 0)
+    <div class="col-md-6">
+        @if (Model.UsuarioID > 0)
+        {
+            using (Html.BeginForm("Adjuntar", "Usuario", FormMethod.Post, new { id = "frm-adjuntar" }))
             {
-                using (Html.BeginForm("Adjuntar", "Usuario", FormMethod.Post, new { id = "frm-adjuntar" }))
-                {
-            <input type="hidden" name="UsuarioID" value="@Model.UsuarioID" />
-            <div class="row">
-                <div class="col-xs-10">
-                    <div class="form-group">
-                        <input type="file" name="documento" accept="image/x-png, image/gif, image/jpeg" @*accept="image/*"*@ />
+                <input type="hidden" name="ProductoId" value="@Model.UsuarioID" />
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="form-group">
+                            <input type="file" name="documento" accept="image/x-png, image/gif, image/jpeg" @*accept="image/*"*@ />
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="submit" class="btn btn-primary btn-block">Adjuntar</button>
                     </div>
                 </div>
-                <div class="col-xs-2">
-                    <button type="submit" class="btn btn-primary btn-block">Adjuntar</button>
-                </div>
-            </div>
-                }
-            <div id="adjuntos-cargados"></div>
             }
+            <div id="adjuntos-cargados"></div>
+        }
+    </div>
 
-        </div>
 
   
 </div>
@@ -139,7 +138,7 @@
 
             function EliminarImagen(ImagenId) {
                 $.ajax({
-                    data: { ProductoImagenId: ImagenId },
+                    data: { UsuarioImagenId: ImagenId },
                     url: '@Url.Action("EliminarImagen","Usuario")',
                     type: 'post',
                     success: function (r) {

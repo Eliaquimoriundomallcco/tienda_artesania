@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="CategoriaId" />
@@ -96,6 +96,7 @@
           <Property Name="UsuarioId" Type="int" Nullable="false" />
           <Property Name="Imagen" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Titulo" Type="varchar" MaxLength="255" />
+          <Property Name="Descripcion" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK__Pedido__ClienteI__35BCFE0A">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
@@ -169,7 +170,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsuarioIm__Usuar__3F466844">
+        <Association Name="FK__UsuarioIm__Usuar__49C3F6B7">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="UsuarioImagen" Type="Self.UsuarioImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -181,7 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Database1ModelStoreContainer">
+        <EntityContainer Name="DatabaseModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
@@ -215,7 +216,7 @@
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="SubCategoria" EntitySet="SubCategoria" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsuarioIm__Usuar__3F466844" Association="Self.FK__UsuarioIm__Usuar__3F466844">
+          <AssociationSet Name="FK__UsuarioIm__Usuar__49C3F6B7" Association="Self.FK__UsuarioIm__Usuar__49C3F6B7">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="UsuarioImagen" EntitySet="UsuarioImagen" />
           </AssociationSet>
@@ -224,7 +225,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="CategoriaId" />
@@ -319,7 +320,7 @@
           <Property Name="Clave" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Correo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="UsuarioImagen" Relationship="Self.FK__UsuarioIm__Usuar__3F466844" FromRole="Usuario" ToRole="UsuarioImagen" />
+          <NavigationProperty Name="UsuarioImagen" Relationship="Self.FK__UsuarioIm__Usuar__49C3F6B7" FromRole="Usuario" ToRole="UsuarioImagen" />
         </EntityType>
         <EntityType Name="UsuarioImagen">
           <Key>
@@ -329,7 +330,8 @@
           <Property Name="UsuarioId" Type="Int32" Nullable="false" />
           <Property Name="Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK__UsuarioIm__Usuar__3F466844" FromRole="UsuarioImagen" ToRole="Usuario" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__UsuarioIm__Usuar__49C3F6B7" FromRole="UsuarioImagen" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK__SubCatego__Categ__267ABA7A">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
@@ -403,7 +405,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UsuarioIm__Usuar__3F466844">
+        <Association Name="FK__UsuarioIm__Usuar__49C3F6B7">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="UsuarioImagen" Type="Self.UsuarioImagen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -415,7 +417,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Pedido" EntityType="Self.Pedido" />
@@ -449,7 +451,7 @@
             <End Role="Producto" EntitySet="Producto" />
             <End Role="ProductoImagen" EntitySet="ProductoImagen" />
           </AssociationSet>
-          <AssociationSet Name="FK__UsuarioIm__Usuar__3F466844" Association="Self.FK__UsuarioIm__Usuar__3F466844">
+          <AssociationSet Name="FK__UsuarioIm__Usuar__49C3F6B7" Association="Self.FK__UsuarioIm__Usuar__49C3F6B7">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="UsuarioImagen" EntitySet="UsuarioImagen" />
           </AssociationSet>
@@ -459,9 +461,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities2">
           <EntitySetMapping Name="Categoria">
-            <EntityTypeMapping TypeName="Database1Model.Categoria">
+            <EntityTypeMapping TypeName="DatabaseModel.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
                 <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
                 <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
@@ -471,7 +473,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="Database1Model.Cliente">
+            <EntityTypeMapping TypeName="DatabaseModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -486,7 +488,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pedido">
-            <EntityTypeMapping TypeName="Database1Model.Pedido">
+            <EntityTypeMapping TypeName="DatabaseModel.Pedido">
               <MappingFragment StoreEntitySet="Pedido">
                 <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
                 <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
@@ -496,7 +498,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PedidoDetalle">
-            <EntityTypeMapping TypeName="Database1Model.PedidoDetalle">
+            <EntityTypeMapping TypeName="DatabaseModel.PedidoDetalle">
               <MappingFragment StoreEntitySet="PedidoDetalle">
                 <ScalarProperty Name="PedidoDetalle1" ColumnName="PedidoDetalle" />
                 <ScalarProperty Name="PedidoId" ColumnName="PedidoId" />
@@ -506,7 +508,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Producto">
-            <EntityTypeMapping TypeName="Database1Model.Producto">
+            <EntityTypeMapping TypeName="DatabaseModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
                 <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
@@ -519,7 +521,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductoImagen">
-            <EntityTypeMapping TypeName="Database1Model.ProductoImagen">
+            <EntityTypeMapping TypeName="DatabaseModel.ProductoImagen">
               <MappingFragment StoreEntitySet="ProductoImagen">
                 <ScalarProperty Name="ProductoImagenId" ColumnName="ProductoImagenId" />
                 <ScalarProperty Name="ProductoId" ColumnName="ProductoId" />
@@ -530,7 +532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubCategoria">
-            <EntityTypeMapping TypeName="Database1Model.SubCategoria">
+            <EntityTypeMapping TypeName="DatabaseModel.SubCategoria">
               <MappingFragment StoreEntitySet="SubCategoria">
                 <ScalarProperty Name="SubCategoriaId" ColumnName="SubCategoriaId" />
                 <ScalarProperty Name="NombreSubCategoria" ColumnName="NombreSubCategoria" />
@@ -541,7 +543,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="Database1Model.Usuario">
+            <EntityTypeMapping TypeName="DatabaseModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
                 <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
@@ -552,12 +554,13 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UsuarioImagen">
-            <EntityTypeMapping TypeName="Database1Model.UsuarioImagen">
+            <EntityTypeMapping TypeName="DatabaseModel.UsuarioImagen">
               <MappingFragment StoreEntitySet="UsuarioImagen">
                 <ScalarProperty Name="UsuarioImagenID" ColumnName="UsuarioImagenID" />
                 <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
                 <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
