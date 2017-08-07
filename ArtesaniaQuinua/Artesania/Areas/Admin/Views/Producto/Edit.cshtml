@@ -6,74 +6,169 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Producto</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ProductoId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NombreProducto, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubCategoriaId, "SubCategoriaId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("SubCategoriaId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.SubCategoriaId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-6">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Puntos, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Puntos, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Puntos, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Existencias, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Existencias, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Existencias, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="form-horizontal">
+                <h4>Producto</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ProductoId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Activo)
-                    @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NombreProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NombreProducto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NombreProducto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SubCategoriaId, "SubCategoriaId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("SubCategoriaId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SubCategoriaId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Puntos, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Puntos, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Puntos, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Existencias, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Existencias, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Existencias, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Activo)
+                            @Html.ValidationMessageFor(model => model.Activo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+    <div class="col-md-6">
+
+        @if (Model.ProductoId > 0)
+            {
+                using (Html.BeginForm("Adjuntar", "Producto", FormMethod.Post, new { id = "frm-adjuntar" }))
+                {
+                <input type="hidden" name="ProductoId" value="@Model.ProductoId" />
+                <div class="row">
+                    <div class="col-xs-10">
+                        <div class="form-group">
+                            <input type="file" name="documento" accept="image/x-png, image/gif, image/jpeg" @*accept="image/*"*@ />
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="submit" class="btn btn-primary btn-block">Adjuntar</button>
+                    </div>
+                </div>
+            }
+            <div id="adjuntos-cargados"></div>
+        }
+
+    </div>
+
 </div>
+
+
+
+
+
+@section scripts{
+    <script>
+            $(document).ready(function () {
+                @if (Model.ProductoId > 0)
+            {
+                <text>
+                CargarAdjuntos();
+                </text>
+            }
+
+                $("#frm-adjuntar").submit(function () {
+                    var form = $(this);
+
+                    form.ajaxSubmit({
+                        dataType: 'JSON',
+                        type: 'POST',
+                        url: form.attr('action'),
+                        success: function (r) {
+                            if (r.respuesta) {
+                                CargarAdjuntos();
+                            }
+                            else { alert(r.error); }
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        }
+                    });
+                    return false;
+                })
+            });
+
+            function CargarAdjuntos() {
+                $("#adjuntos-cargados").load("@Url.Content("~/Admin/Producto/adjuntos?ProductoId=" + Model.ProductoId)");
+            }
+
+
+            function EliminarImagen(ImagenId) {
+                $.ajax({
+                    data: { ProductoImagenId: ImagenId },
+                    url: '@Url.Action("EliminarImagen","Producto")',
+                    type: 'post',
+                    success: function (r) {
+                        if (r.respuesta) {
+                            CargarAdjuntos();
+                        }
+                        else
+                            alert(r.error);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) { alert(errorThrown); }
+                });
+            }
+
+
+
+    </script>
+}

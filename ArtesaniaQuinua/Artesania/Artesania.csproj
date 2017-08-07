@@ -152,6 +152,7 @@
     <Content Include="resources\css\popuo-box.css" />
     <Content Include="resources\css\style.css" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="resources\js\jquery.form.min.js" />
     <Content Include="resources\style.css" />
     <Content Include="resources\images\1.jpg" />
     <Content Include="resources\images\1.png" />
@@ -397,6 +398,7 @@
     <Content Include="Areas\Admin\Views\Usuario\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Producto\Adjuntos.cshtml" />
     <None Include="resources\scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="resources\scripts\jquery-1.10.2.js" />
     <Content Include="resources\scripts\jquery-1.10.2.min.js" />
@@ -430,6 +432,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductoController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubCategoriaController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Admin\Models\ResponseModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -468,6 +471,7 @@
     <Compile Include="Models\ProductoImagen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\SubCategoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -494,7 +498,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="ImgProductos\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
