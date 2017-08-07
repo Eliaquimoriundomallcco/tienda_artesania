@@ -97,7 +97,8 @@ CREATE TABLE UsuarioImagen
 	UsuarioImagenID INT PRIMARY KEY IDENTITY(1,1),
 	UsuarioId INT REFERENCES Usuario(UsuarioID) NOT NULL,
 	Imagen VARCHAR(255) NOT NULL ,
-	Titulo VARCHAR(255)
+	Titulo VARCHAR(255),
+	Descripcion VARCHAR(MAX) 
 )
 
 
