@@ -415,10 +415,7 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
-=======
 
->>>>>>> 79c13a96ffbcdcdc9bee9e01586ce0a0d44b2885
     <Content Include="Areas\Admin\Views\Categoria\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Details.cshtml" />

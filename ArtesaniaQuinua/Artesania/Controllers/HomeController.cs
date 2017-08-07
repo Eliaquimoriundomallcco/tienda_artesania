@@ -24,7 +24,7 @@ namespace Artesania.Controllers
 
         public ActionResult Producto(string id = "")
         {
-<<<<<<< HEAD
+
             //var prod = (from ep in bd.Producto
             //            join e in bd.SubCategoria on ep.SubCategoriaId equals e.SubCategoriaId
             //            join t in bd.Categoria on e.CategoriaId equals t.CategoriaId
@@ -43,18 +43,13 @@ namespace Artesania.Controllers
             //var ppp = prod.ToList().Take(20);
             //return View(prod);
             
-            var p = bd.Producto
-                .Where(x => x.Descripcion.Contains(id))
-=======
-
-            
+           
             var producto = bd.Producto
                 .Where(x => x.NombreProducto.Contains(id) )
->>>>>>> 79c13a96ffbcdcdc9bee9e01586ce0a0d44b2885
                 .Take(20)
                 .ToList();
             ViewBag.clave = id;
-            return View(p);
+            return View(producto);
 
         }
 
