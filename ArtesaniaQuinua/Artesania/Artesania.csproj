@@ -413,7 +413,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\Categoria\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Categoria\Details.cshtml" />
@@ -428,11 +427,11 @@
     <None Include="Views\Shared\_layout.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
 
-=======
+
     <Content Include="resources\scripts\jquery-1.10.2.min.map" />
     <None Include="Views\Shared\_layout.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
->>>>>>> cabafcbe20a5ba4ce87b5cdde47e2ae26e2f46c5
+
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
